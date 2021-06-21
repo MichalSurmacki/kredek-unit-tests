@@ -10,6 +10,9 @@ namespace Application
         {
             CreateMap<Line, LineDto>();
             CreateMap<Point, PointDto>();
+
+            CreateMap<LineDto, Line>();
+            CreateMap<PointDto, Point>();
         }
     }
 }

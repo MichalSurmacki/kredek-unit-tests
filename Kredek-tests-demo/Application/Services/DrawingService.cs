@@ -9,13 +9,13 @@ namespace Application.Services
 {
     public class DrawingService : IDrawingService
     {
-        private readonly MockRepository _mockRepository;
+        private readonly DemoRepository _demoRepository;
 
         public IMapper _mapper { get; }
 
-        public DrawingService(MockRepository mockRepository, IMapper mapper)
+        public DrawingService(DemoRepository demoRepository, IMapper mapper)
         {
-            _mockRepository = mockRepository;
+            _demoRepository = demoRepository;
             _mapper = mapper;
         }
         /// <summary>
@@ -45,7 +45,7 @@ namespace Application.Services
                                     new PointDto(origin.X, origin.Y)
                                     ));
 
-            _mockRepository.Rectangles.Add(_mapper.Map<List<Line>>(vectorRectangle));
+            _demoRepository.Rectangles.Add(_mapper.Map<List<Line>>(vectorRectangle));
 
             return vectorRectangle;
         }
@@ -75,7 +75,7 @@ namespace Application.Services
                                     new PointDto(origin.X, origin.Y)
                                     ));
 
-            _mockRepository.Triangles.Add(_mapper.Map<List<Line>>(vectorRightTriangle));
+            _demoRepository.Triangles.Add(_mapper.Map<List<Line>>(vectorRightTriangle));
 
             return vectorRightTriangle;
         }

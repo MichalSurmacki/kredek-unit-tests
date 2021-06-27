@@ -14,9 +14,9 @@ namespace API.Controllers
     public class RectanglesController : ControllerBase
     {
         private readonly IDrawingService _drawingService;
-        private readonly MockRepository _mockRepository;
+        private readonly DemoRepository _mockRepository;
 
-        public RectanglesController(IDrawingService drawingService, MockRepository mockRepository)
+        public RectanglesController(IDrawingService drawingService, DemoRepository mockRepository)
         {
             _drawingService = drawingService;
             _mockRepository = mockRepository;

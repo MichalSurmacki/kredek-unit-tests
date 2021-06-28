@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace API.Controllers   
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class RightTrianglesController : ControllerBase
     {
@@ -22,14 +21,20 @@ namespace API.Controllers
             _demoRepository = demoRepository;
         }
 
-        [HttpPost]
+        [HttpPost("api/[controller]")]
         public IActionResult CreateRightTriangle(PointDto origin, int a, int b)
         {
             _drawingService.CreateVectorRightTriangle(origin, a, b);
             return Ok();
         }
 
-        [HttpGet]
+        [HttpGet("api/[controller]")]
+        public IActionResult GetRightTriangles()
+        {
+            return Ok(_demoRepository.GetTriangles());
+        }
+
+        [HttpGet("api/[controller]/{id}")]
         public IActionResult GetRightTriangleById(int id)
         {
             if (id >= _demoRepository.GetTriangles().Count)

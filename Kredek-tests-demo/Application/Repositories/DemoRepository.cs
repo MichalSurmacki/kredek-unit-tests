@@ -6,8 +6,8 @@ namespace Application.Repositories
 {
     public class DemoRepository : IDemoRepository
     {
-        private List<List<Line>> _rectangles { get; set; } = new List<List<Line>>();
-        private List<List<Line>> _triangles { get; set; } = new List<List<Line>>();
+        private static List<List<Line>> _rectangles { get; set; } = new List<List<Line>>();
+        private static List<List<Line>> _triangles { get; set; } = new List<List<Line>>();
 
         public List<List<Line>> GetTriangles()
         {

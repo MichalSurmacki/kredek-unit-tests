@@ -14,12 +14,12 @@ namespace API.Controllers
     public class RightTrianglesController : ControllerBase
     {
         private readonly IDrawingService _drawingService;
-        private readonly DemoRepository _mockRepository;
+        private readonly IDemoRepository _demoRepository;
 
-        public RightTrianglesController(IDrawingService drawingService, DemoRepository mockRepository)
+        public RightTrianglesController(IDrawingService drawingService, IDemoRepository demoRepository)
         {
             _drawingService = drawingService;
-            _mockRepository = mockRepository;
+            _demoRepository = demoRepository;
         }
 
         [HttpPost]
@@ -32,10 +32,10 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult GetRightTriangleById(int id)
         {
-            if (id >= _mockRepository.GetTriangles().Count)
+            if (id >= _demoRepository.GetTriangles().Count)
                 return BadRequest();
 
-            return Ok(_mockRepository.GetTriangles()[id]);
+            return Ok(_demoRepository.GetTriangles()[id]);
         }
     }
 }

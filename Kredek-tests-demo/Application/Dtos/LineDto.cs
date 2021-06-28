@@ -14,6 +14,5 @@ namespace Application.Dtos
         }
         public PointDto Start { get; set; }
         public PointDto End { get; set; }
-
     }
 }

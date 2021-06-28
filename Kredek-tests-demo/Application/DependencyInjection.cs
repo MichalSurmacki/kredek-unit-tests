@@ -11,7 +11,7 @@ namespace Application
         public static void AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IDrawingService, DrawingService>();
-            services.AddSingleton<DemoRepository>();
+            services.AddScoped<IDemoRepository, DemoRepository>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
         }

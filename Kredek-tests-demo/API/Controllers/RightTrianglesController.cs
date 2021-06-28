@@ -32,10 +32,10 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult GetRightTriangleById(int id)
         {
-            if (id >= _mockRepository.Triangles.Count)
+            if (id >= _mockRepository.GetTriangles().Count)
                 return BadRequest();
 
-            return Ok(_mockRepository.Triangles[id]);
+            return Ok(_mockRepository.GetTriangles()[id]);
         }
     }
 }

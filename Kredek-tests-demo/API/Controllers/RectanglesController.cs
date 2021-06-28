@@ -32,10 +32,10 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult GetGriangleById(int id)
         {
-            if (id >= _mockRepository.Rectangles.Count)
+            if (id >= _mockRepository.GetRectangles().Count)
                 return BadRequest();
             
-            return Ok(_mockRepository.Rectangles[id]);
+            return Ok(_mockRepository.GetRectangles()[id]);
         }
     }
 }
